@@ -1,157 +1,353 @@
-/* ------------------- */
-/* ESTILOS GERAIS E RESET (TEMA PRETO E DOURADO) */
-/* ------------------- */
-
+/* Reset e configurações básicas */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif; 
-  background-color: #121212; /* Fundo principal: preto/cinza muito escuro */
-  color: #e0e0e0; /* Cor padrão do texto: cinza claro/quase branco */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* ------------------- */
-/* CABEÇALHO (TEMA PRETO E DOURADO) */
-/* ------------------- */
-
+/* Cabeçalho */
 .cabecalho {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  
-  padding: 15px 40px;
-  background-color: #1c1c1c; /* Fundo do cabeçalho: um tom de preto mais suave */
-  border-bottom: 1px solid #D4AF37; /* Borda inferior com o tom de dourado */
-  position: sticky; 
-  top: 0;
-  z-index: 100; 
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
 }
 
-.logo {
-  height: 60px; 
-  width: auto;   
+#logo-container .logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    transition: transform 0.3s ease;
+}
+
+#logo-container .logo:hover {
+    transform: scale(1.1);
 }
 
 .nav-principal ul {
-  list-style: none; 
-  display: flex;    
-  gap: 25px;        
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
 .nav-principal a {
-  text-decoration: none; 
-  color: #e0e0e0; /* Cor do link: o mesmo cinza claro do corpo */
-  font-size: 16px;
-  font-weight: bold;
-  padding: 5px 0;
-  position: relative; 
-  transition: color 0.3s;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-principal a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, #ffd700);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-principal a:hover::before {
+    width: 100%;
 }
 
 .nav-principal a:hover {
-  color: #D4AF37; /* Cor do link no hover: DOURADO */
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
 }
 
-.nav-principal a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #D4AF37; /* Cor do sublinhado: DOURADO */
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0); 
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-
-.nav-principal a:hover::after {
-  transform: scaleX(1); 
-  transform-origin: bottom left;
-}
-
-
-/* ------------------- */
-/* SEÇÃO DE AGENDAMENTO (TEMA PRETO E DOURADO) */
-/* ------------------- */
-
+/* Container principal */
 .principal-container {
-  max-width: 1200px;
-  margin: 0 auto; 
-  padding: 40px;
+    margin-top: 80px;
+    padding: 40px 20px;
 }
 
+/* Seção de agendamento */
 .agendamento {
-  display: flex;
-  align-items: center;
-  gap: 40px; 
-  margin-bottom: 60px;
-}
-
-.botao-agendamento {
-  flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .botao-agendamento button {
-  width: 100%;
-  padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #121212; /* Cor do texto do botão: PRETO para contrastar com o dourado */
-  background-color: #D4AF37; /* Cor de fundo do botão: DOURADO */
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #000000;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
 .botao-agendamento button:hover {
-  background-color: #b8860b; /* Tom de dourado mais escuro no hover */
-}
-
-.imagem-agendamento {
-  flex: 1; 
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
 }
 
 .imagem-agendamento img {
-  width: 100%; 
-  border-radius: 8px;
-  display: block; 
-  border: 1px solid #333; /* Borda sutil para a imagem */
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #d4af37;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease;
 }
 
+.imagem-agendamento img:hover {
+    transform: scale(1.05);
+}
 
-/* ------------------- */
-/* SEÇÃO SOBRE NÓS (TEMA PRETO E DOURADO) */
-/* ------------------- */
+/* Cards da barbearia */
+.cards-barbearia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
 
+.cards-barbearia > div {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.cards-barbearia > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.cards-barbearia > div:hover::before {
+    left: 100%;
+}
+
+.cards-barbearia > div:hover {
+    transform: translateY(-10px);
+    border-color: #ffd700;
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* Ícones para os cards */
+.card-1::before { content: "✂️"; }
+.card-2::before { content: "💈"; }
+.card-3::before { content: "⏰"; }
+.card-4::before { content: "🏆"; }
+.card-5::before { content: "📍"; }
+.card6::before { content: "🎁"; }
+
+.cards-barbearia > div::before {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+    filter: sepia(1) hue-rotate(30deg) saturate(2);
+}
+
+.cards-barbearia h5 {
+    color: #d4af37;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cards-barbearia p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Sobre nós */
 .sobre-nos {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  background-color: #1c1c1c; /* Fundo da seção: o mesmo preto suave do header */
-  padding: 40px;
-  border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 60px 40px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .texto-sobre-nos {
-  flex: 1;
-  line-height: 1.6; 
+    flex: 1;
+    padding-right: 40px;
+}
+
+.texto-sobre-nos p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #e0e0e0;
 }
 
 .imagem-sobre-nos {
-  flex: 1;
+    flex: 1;
 }
 
 .imagem-sobre-nos img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  /* Coloque um src na sua imagem no HTML para ela aparecer */
-  background-color: #333; /* Placeholder cinza escuro enquanto não há imagem */
-  min-height: 250px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #d4af37;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+}
+
+/* Localização */
+.Localizacao {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 60px auto 60px;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    border: 1px solid #d4af37;
+}
+
+.endereco, .telefone {
+    text-align: center;
+    padding: 20px;
+}
+
+.endereco::before {
+    content: "📍";
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+    filter: sepia(1) hue-rotate(30deg) saturate(2);
+}
+
+.telefone::before {
+    content: "📱";
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 15px;
+    filter: sepia(1) hue-rotate(30deg) saturate(2);
+}
+
+.endereco p, .telefone p {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background: #000000;
+    border-top: 2px solid #d4af37;
+    padding: 40px 20px;
+    text-align: center;
+    color: #cccccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav-principal ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .agendamento {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .cards-barbearia {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .sobre-nos {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .texto-sobre-nos {
+        padding-right: 0;
+    }
+
+    .Localizacao {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .botao-agendamento button {
+        font-size: 18px;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-barbearia > div {
+        padding: 30px 20px;
+    }
+
+    .agendamento {
+        padding: 40px 20px;
+    }
+
+    .sobre-nos {
+        padding: 40px 20px;
+    }
 }
