@@ -1,90 +1,264 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-    color: #ffffff;
-    min-height: 100vh;
-    line-height: 1.6;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  line-height: 1.6;
 }
-
 
 /* Cabeçalho */
 .cabecalho {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    border-bottom: 2px solid #d4af37;
-    box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #d4af37;
+  box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
 }
 
 #logo-container .logo {
-    height: 50px;
-    width: auto;
-    border-radius: 50%;
-    border: 2px solid #d4af37;
-    transition: transform 0.3s ease;
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  border: 2px solid #d4af37;
+  transition: transform 0.3s ease;
 }
 
 #logo-container .logo:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .nav-principal ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
+  display: flex;
+  list-style: none;
+  gap: 30px;
 }
 
 .nav-principal a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-principal a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #d4af37, #ffd700);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .nav-principal a:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .nav-principal a:hover {
-    color: #d4af37;
-    background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.1);
 }
-
-
 .container {
-    margin-top: 25%;
-    padding: 40px 20px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 150px 20px;
 }
-.btn-check{
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.card1 {
+  position: relative;
+  flex: 1;
+  max-width: 350px;
+}
+
+.card1 input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.card1 label {
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-content {
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.card-content:hover::before {
+  left: 100%;
+}
+
+.card-content img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffd700;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card-content h3 {
+  color: #ffd700;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-content p {
+  color: #cccccc;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Estados do checkbox */
+/* Updated CSS selectors from checkbox to radio */
+.card1 input[type="radio"]:checked + label .card-content {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+.card1 input[type="radio"]:checked + label .card-content::after {
+  content: "✓";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffd700;
+  color: #1a1a1a;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.card1 input[type="radio"]:checked + label .card-content img {
+  transform: scale(1.1);
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.card1 input[type="radio"]:checked + label .card-content h3 {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Hover effects */
+.card-content:hover {
+  border-color: #ffd700;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.card-content:hover img {
+  transform: scale(1.05);
+}
+
+.card-content:hover h3 {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .card-content {
     padding: 20px;
+  }
+
+  .card-content img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-content h3 {
+    font-size: 1.2em;
+  }
+
+  .card-content p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .cards {
+    gap: 15px;
+  }
+
+  .card1 {
+    max-width: 280px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
 }
