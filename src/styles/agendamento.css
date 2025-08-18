@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+
+/* Cabeçalho */
+.cabecalho {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+}
+
+#logo-container .logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    transition: transform 0.3s ease;
+}
+
+#logo-container .logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-principal ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-principal a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-principal a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, #ffd700);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-principal a:hover::before {
+    width: 100%;
+}
+
+.nav-principal a:hover {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+
+.container {
+    margin-top: 25%;
+    padding: 40px 20px;
+}
+.btn-check{
+    padding: 20px;
+}
